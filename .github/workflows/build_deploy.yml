@@ -20,5 +20,5 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           source: "."  # Dossier local à téléverser, ajustez selon votre configuration
-          target: "/nomdubot"  # Dossier sur le serveur, ajustez selon votre configuration
+          target: "/home/nomdubot"  # Dossier sur le serveur, ajustez selon votre configuration
           strip_components: 1
