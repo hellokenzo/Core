@@ -1,0 +1,24 @@
+name: Deploy to SFTP
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy to SFTP
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          source: "."  # Dossier local à téléverser, ajustez selon votre configuration
+          target: "/home/nomdubot"  # Dossier sur le serveur, ajustez selon votre configuration
+          strip_components: 1
